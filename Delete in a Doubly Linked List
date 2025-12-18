@@ -1,0 +1,29 @@
+"""
+class Node:
+    def __init__(self, d):
+        self.data = d
+        self.prev = None
+        self.next = None
+"""
+
+class Solution:
+    def delPos(self, head, x):
+        temp = head
+        ind = 1
+        if x == 1:
+            head = temp.next
+            head.prev = None
+            return head
+            
+        while ind!=x:
+            temp = temp.next
+            ind = ind + 1
+        nxtNode = temp.next
+        prevNode = temp.prev
+        if prevNode!= None:
+            prevNode.next = nxtNode
+        if nxtNode!=None:
+            nxtNode.prev = prevNode
+        return head
+        
+        
